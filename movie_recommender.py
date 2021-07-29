@@ -23,4 +23,3 @@ def combine_features(row):
 
 movie_user_likes = "Avatar"
 
-## Step 8: Print titles of first 50 movies
