@@ -13,13 +13,18 @@ def get_index_from_title(title):
 
 
 df = pd.read_csv("movie_dataset.csv")
-print(df.columns)
+
 features = ['keywords', 'cast', 'genres', 'director']
+
+for feature in features:
+    df[feature] = df[feature].fillna('')
 
 
 def combine_features(row):
     return row['keywords'] + " " + row['cast'] + " " + row['genres'] + " " + row['director']
 
 
-movie_user_likes = "Avatar"
+df["combined_features"] = df.apply(combine_features, axis=1)
 
+print("Combined Features:", df["combined_features"].head())
+movie_user_likes = "Avatar"
